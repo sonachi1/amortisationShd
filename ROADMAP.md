@@ -2,9 +2,6 @@
 ## _This document discusses what I would have added to the Amortisation schedule API if I had time._
 
 The following headings list the improvements I would have made to the Amortisation schedule API.
-## Spring Boot Unit test
-Given time I would have added the spring-boot-starter-test to the pom.xml, and used it to implement some unit tests in my application.
-I would have created tests for my controllers as well as mocked the repositories for the schedule and loan details.
 
 ## loggers
 Adding slf4j API would ensure that I can create useful logs for the API.  I would have added information and error messages to a

@@ -1,13 +1,13 @@
-package com.loansRepayment.amortisationShd;
+	package com.loansRepayment.amortisationShd;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+	import org.springframework.boot.SpringApplication;
+	import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class AmortisationShdApplication {
+	@SpringBootApplication
+	public class AmortisationShdApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AmortisationShdApplication.class, args);
+		public static void main(String[] args) {
+			SpringApplication.run(AmortisationShdApplication.class, args);
+		}
+
 	}
-
-}

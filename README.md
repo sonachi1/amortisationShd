@@ -64,6 +64,11 @@ Without balloon payments
 ## Tests
 
 #### Test Case 1 - Create Amortisation schedule without balloon payments, not passing in the balloon payment parameter
+    Using curl
+    curl --location --request POST 'http://localhost:8080/loan/' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"costOfAsset":25000, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12}'
+
     Using postman Post - url http://localhost:8080/loan/  
    - The parameters - {"costOfAsset":25000, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12}
    - Expected result - loan details will be used to generate schedules with a final balance of 0, the schedules and the loan 
@@ -72,6 +77,11 @@ Without balloon payments
    - Pass/fail - Pass
 
 #### Test Case 2 -  Create Amortisation schedule without balloon payments, passing in the balloon payment parameter, but setting it to 0
+    Using Curl
+    curl --location --request POST 'http://localhost:8080/loan/' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"costOfAsset":25000, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12,"ballonPayment":0}'
+
     Using postman Post - url http://localhost:8080/loan/ 
    - The parameters -{"costOfAsset":25000, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12,"balloonPayment":0}
    - Expected result - loan details will be used to generate schedules with a final balance of 0, the schedules and the loan 
@@ -80,6 +90,11 @@ Without balloon payments
    - Pass/Fail - Pass
 
 #### Test Case 3 -  Create Amortisation schedule without balloon payments, passing in the balloon payment parameter, but setting it to 10000
+    Using Curl
+    curl --location --request POST 'http://localhost:8080/loan/' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"costOfAsset":25000, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12,"ballonPayment":10000}'
+
      Using postman Post - url http://localhost:8080/loan/ 
    - The parameters -{"costOfAsset":25000, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12,"balloonPayment":1000}
    - Expected result - loan details will be used to generate schedules with a final balance of approximately 10000, the schedules and the loan 
@@ -88,6 +103,9 @@ Without balloon payments
    - Pass/fail - Pass
    
 #### Test Case 4 -  Retrieve all the data from the loan_details table
+     Using Curl
+     curl --location --request GET 'http://localhost:8080/loan/load_details/'
+
      Using postman Get - http://localhost:8080/loan/load_details/ 
    - The parameters - none
    - Expected result - Retrieves 2 records from the Loan Details table.
@@ -95,6 +113,9 @@ Without balloon payments
    - Pass/fail - Pass
    
 #### Test Case 5 -  Retrieve all the data from the Schedules table
+    Using Curl
+    curl --location --request GET 'http://localhost:8080/loan/schedules/'
+
      Using postman Get - http://localhost:8080/loan/Schedules/ 
    - The parameters - none
    - Expected result - Retrieves 24 records from the Schedules table.
@@ -102,14 +123,20 @@ Without balloon payments
    - Pass/fail - Pass
    
  #### Test Case 6 -  Retrieve data from the loan_details table with a given correct id.
-     Using postman Get - http://localhost:8080/loan/load_detail/1 
+    Using Curl
+    curl --location --request GET 'http://localhost:8080/loan/load_detail/1/'
+
+     Using postman Get - http://localhost:8080/loan/load_detail/1/
    - The parameters - none
    - Expected result - Retrieves one record from the Loan Details table with the id of 1.
    - Actual result - Retrieves one record from the Loan Details table with the id of 1.
    - Pass/fail - Pass
    
 #### Test Case 7 -  Retrieve Data from the Schedules table with a given correct id.
-     Using postman Get - http://localhost:8080/loan/Schedule/13 
+    Using curl
+    curl --location --request GET 'http://localhost:8080/loan/schedule/5/'
+
+     Using postman Get - http://localhost:8080/loan/Schedule/5/ 
    - The parameters - none
    - Expected result - Retrieves a record from the Schedules table with id 13.
    - Actual result - Retrieves a record from the Schedules table with the id 13.
@@ -130,6 +157,11 @@ Without balloon payments
    - Pass/fail - Pass
    
   #### Test Case 10 - Create Amortisation schedule without balloon payments, not passing in the CostOfAsset parameter
+    Using curl
+    curl --location --request POST 'http://localhost:8080/loan/' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{ "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12}'
+
     Using postman Post - url http://localhost:8080/loan/  
    - The parameters - { "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12}
    - Expected result - loan details will fail to generate schedules and throw an error. 
@@ -137,6 +169,11 @@ Without balloon payments
    - Pass/fail - Pass 
    
   #### Test Case 11 - Create Amortisation schedule without balloon payments, passing in the CostOfAsset parameter as a letter
+    Using curl
+    curl --location --request POST 'http://localhost:8080/loan/' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"costOfAsset":A, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12}'
+
     Using postman Post - url http://localhost:8080/loan/  
    - The parameters - {"costOfAsset":A, "depositPaid":5000,"yearlyInterest":7.5,"numberOfMonthlyPayments":12}
    - Expected result - loan details will fail to generate schedules and throw an error. 
