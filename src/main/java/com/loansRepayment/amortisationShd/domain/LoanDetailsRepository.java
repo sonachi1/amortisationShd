@@ -1,10 +1,11 @@
-    package com.loansRepayment.amortisationShd.domain;
+package com.loansRepayment.amortisationShd.domain;
 
-    import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.CrudRepository;
 
-    import java.util.Optional;
+import java.util.Optional;
 
-    public interface LoanDetailsRepository extends CrudRepository<LoanDetails, Long>{
-        Iterable<LoanDetails> findAll();
-        Optional<LoanDetails> findById(Long id);
-    }
+public interface LoanDetailsRepository extends CrudRepository<LoanDetails, Long> {
+    Iterable<LoanDetails> findAll();
+
+    Optional<LoanDetails> findById(Long id);
+}
